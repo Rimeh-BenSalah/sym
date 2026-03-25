@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+<title>{% block title %}Symfony Blog{% endblock %}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block stylesheets %}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app.css') }}">
+{% endblock %}
+</head>
+<body>
+<nav>
+ <div class="nav-wrapper">
+ <div class="container">
+ <a href="#" class="brand-logo">Symfony Blog</a>
+ <ul id="nav-mobile" class="right hide-on-med-and-down">
+ <li><a href="/blog2">Home</a></li>
+  <li><a href="/show/rim">show</a></li>
+ <li><a href="/add/rim">add</a></li>
+ <li><a href="/edit/rim">edit</a></li>
+ <li><a href="#">Login</a></li>
+ </ul>
+ </div>
+ </div>
+ </nav>
+ {% block content %}
+ {% endblock %}
+ {% block body %}
+ {% endblock %}
+{% block scripts %}
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock %}
+</body>
 </html>
